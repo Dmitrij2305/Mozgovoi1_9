@@ -18,7 +18,7 @@ namespace Mozgovoi1_9
         {
         }
 
-        bool HasSurvived(byte neighbors)
+        public bool HasSurvived(byte neighbors)
         {
             int count = 0;
             while (neighbors > 0)
@@ -30,7 +30,7 @@ namespace Mozgovoi1_9
             return 2 <= count && count <= 3;
         }
 
-        bool HasBorn(byte neighbors)
+        public bool HasBorn(byte neighbors)
         {
             int count = 0;
             while (neighbors > 0)
