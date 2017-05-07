@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mozgovoi1_9
 {
-    enum Neighbor
+    enum Neighbor : byte
     {
         NW = 128,
         N = 64,

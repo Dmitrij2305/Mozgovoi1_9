@@ -16,6 +16,7 @@ namespace Mozgovoi1_9
         private const int cellHeight = 20;
         private const int cellcolCount = 10;
         private const int cellrowCount = 10;
+        private const int cellsCount = 5;
 
         private Graphics canvas;
         private Pen pen;
@@ -48,7 +49,14 @@ namespace Mozgovoi1_9
 
         private void redrawField()
         {
-            throw new NotImplementedException();
+            for (int rowIndex = 1; rowIndex < automata.Field.RowsCount + 1; rowIndex++)
+                for (int colIndex = 1; colIndex < automata.Field.ColumnsCount + 1; colIndex++)
+                {
+                    if (automata.Field.Get(rowIndex, colIndex) > 0)
+                        drawCiliate(colIndex, rowIndex);
+                    else
+                        drawCiliate(colIndex, rowIndex);
+                }
         }
 
         private void startButton_Click(object sender, EventArgs e)
@@ -84,16 +92,18 @@ namespace Mozgovoi1_9
             canvas.DrawRectangle(pen, (colIndex - 1) * cellWidth, 2 * (rowIndex - 1) * cellHeight, cellWidth, cellHeight);
         }
 
-        private void DoStep()
-        {
-            for (int colIndex = 1; colIndex <= cellcolCount; colIndex++)
-                for (int rowIndex = 1; rowIndex <= cellrowCount; rowIndex++)
-                    automata.DoStep();
-        }
-
         private void MainForm_Shown(object sender, EventArgs e)
         {
             DrawGrid(cellcolCount, cellrowCount);
+            automata.Initialize(cellsCount);
+            for (int rowIndex = 1; rowIndex < automata.Field.RowsCount + 1; rowIndex++)
+                for (int colIndex = 1; colIndex < automata.Field.ColumnsCount + 1; colIndex++)
+                {
+                    if (automata.Field.Get(rowIndex, colIndex) == 345)
+                        drawCiliate(colIndex, rowIndex);
+                    else
+                        drawCiliate(colIndex, rowIndex);
+                }
         }
 
         private void lifePanel_MouseDoubleClick(object sender, MouseEventArgs e)

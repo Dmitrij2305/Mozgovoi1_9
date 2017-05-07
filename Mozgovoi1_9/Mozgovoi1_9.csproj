@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CellAutomata2D.cs" />
+    <Compile Include="CellAutomataField.cs" />
     <Compile Include="IEvolutionStrategy.cs" />
     <Compile Include="LifeEvolutionStrategy.cs" />
     <Compile Include="MainForm.cs">
